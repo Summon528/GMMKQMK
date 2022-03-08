@@ -37,7 +37,6 @@ enum userspace_layers {
     CLLAYER,
 };
 
-
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -72,9 +71,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [CLLAYER] = LAYOUT(
         _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,                    _______,     
         _______,      _______,      M_EMAIL,      _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,                    _______,     
-   LCTL(KC_TAB),   LCTL(KC_Q),   LCTL(KC_W),   LCTL(KC_E),   LCTL(KC_R),   LCTL(KC_T),   LCTL(KC_Y),      KC_HOME,   LCTL(KC_I),       KC_END,   LCTL(KC_P),      _______,      _______,      _______,      _______,     
-        _______,   LCTL(KC_A),   LCTL(KC_S),   LCTL(KC_D),   LCTL(KC_F),   LCTL(KC_G),      KC_LEFT,      KC_DOWN,        KC_UP,      KC_RGHT,      _______,      _______,                    _______,                    _______,     
-        _______,                 LCTL(KC_Z),   LCTL(KC_X),   LCTL(KC_C),   LCTL(KC_V),   LCTL(KC_B),   LCTL(KC_N),   LCTL(KC_M),      _______,      _______,      _______,                    _______,      _______,      _______,     
+        _______,      _______,   LCTL(KC_W),      _______,      _______,   LCTL(KC_T),      _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,     
+        _______,      _______,      _______,      _______,      _______,      _______,      KC_LEFT,      KC_DOWN,        KC_UP,      KC_RGHT,      _______,      _______,                    _______,                    _______,     
+        _______,                    _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,                    _______,      _______,      _______,     
         KC_CAPS,      _______,   _______,                                     _______,                                  _______,      _______,      _______,      _______,      _______,      _______
     ),
 
@@ -102,19 +101,17 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
     }
     return false;
 }
-#endif  // ENCODER_ENABLE
+#endif // ENCODER_ENABLE
 
 #ifdef RGB_MATRIX_ENABLE
 void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     switch (get_highest_layer(layer_state)) {
         case CLLAYER:
-            RGB_MATRIX_INDICATOR_SET_COLOR(13, 0, 0, 255)  // 2
-            RGB_MATRIX_INDICATOR_SET_COLOR(37, 0, 0, 255)  // h
-            RGB_MATRIX_INDICATOR_SET_COLOR(41, 0, 0, 255)  // u
-            RGB_MATRIX_INDICATOR_SET_COLOR(42, 0, 0, 255)  // j
-            RGB_MATRIX_INDICATOR_SET_COLOR(47, 0, 0, 255)  // k
-            RGB_MATRIX_INDICATOR_SET_COLOR(52, 0, 0, 255)  // l
-            RGB_MATRIX_INDICATOR_SET_COLOR(53, 0, 0, 255)  // l
+            RGB_MATRIX_INDICATOR_SET_COLOR(13, 0, 0, 255) // 2
+            RGB_MATRIX_INDICATOR_SET_COLOR(37, 0, 0, 255) // h
+            RGB_MATRIX_INDICATOR_SET_COLOR(42, 0, 0, 255) // j
+            RGB_MATRIX_INDICATOR_SET_COLOR(47, 0, 0, 255) // k
+            RGB_MATRIX_INDICATOR_SET_COLOR(53, 0, 0, 255) // l
             break;
         default:
             break;
